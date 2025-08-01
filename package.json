@@ -1,0 +1,56 @@
+{
+  "name": "markdown-editor",
+  "version": "1.0.0",
+  "description": "A simple markdown editor for macOS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish=never"
+  },
+  "keywords": ["markdown", "editor", "electron", "macos"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "marked": "^9.1.2"
+  },
+  "build": {
+    "appId": "com.yourname.markdown-editor",
+    "productName": "Markdown Editor",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "icon": "assets/icon.icns",
+      "darkModeSupport": true,
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "files": [
+      "main.js",
+      "renderer.js",
+      "index.html",
+      "styles.css",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "compression": "maximum",
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  }
+}
