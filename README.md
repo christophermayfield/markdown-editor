@@ -16,13 +16,71 @@ A simple, elegant markdown editor for macOS built with Electron. Features a spli
 
 ## Installation
 
-1. Make sure you have Node.js installed
-2. Clone or download this project
-3. Open terminal and navigate to the project directory
-4. Install dependencies:
+### Option 1: Install Pre-built Application (Recommended)
+
+1. **Download the appropriate .dmg file for your Mac:**
+   - For Apple Silicon Macs (M1, M2, M3, etc.): `Markdown Editor-1.0.0-arm64.dmg`
+   - For Intel Macs: `Markdown Editor-1.0.0-x64.dmg`
+
+2. **Install the application:**
+   - Double-click the downloaded .dmg file
+   - A window will open showing the Markdown Editor app and an Applications folder
+   - Drag the "Markdown Editor" app to the Applications folder
+   - Wait for the copy to complete
+   - Eject the .dmg file
+
+3. **Launch the application:**
+   - Open Finder and go to Applications
+   - Find "Markdown Editor" and double-click to launch
+   - If you see a security dialog, click "Open" to confirm
+
+### Option 2: Build from Source (For Developers)
+
+1. **Prerequisites:**
+   - Node.js (version 16 or later)
+   - npm (comes with Node.js)
+
+2. **Clone and setup:**
    ```bash
+   git clone <repository-url>
+   cd markdown-editor
    npm install
    ```
+
+3. **Run in development mode:**
+   ```bash
+   npm start
+   ```
+
+4. **Build distribution files:**
+   ```bash
+   npm run dist
+   ```
+   This creates .dmg files in the `dist/` folder for both Intel and Apple Silicon Macs.
+
+## System Requirements
+
+- **macOS**: 10.12 Sierra or later
+- **Architecture**: Supports both Intel (x64) and Apple Silicon (ARM64) Macs
+- **Disk Space**: ~100 MB for installation
+- **Memory**: 512 MB RAM minimum
+
+## Troubleshooting
+
+### Security Warning on First Launch
+If you see a warning like "Markdown Editor cannot be opened because it is from an unidentified developer":
+1. Go to System Preferences → Security & Privacy
+2. Click "Open Anyway" next to the blocked app message
+3. Or right-click the app and select "Open" from the context menu
+
+### Application Won't Start
+- Make sure you're using the correct version for your Mac architecture (ARM64 for Apple Silicon, x64 for Intel)
+- Try restarting your Mac and launching the app again
+- Check that you have sufficient disk space and memory available
+
+### File Operations Not Working
+- Ensure the app has permission to access files in System Preferences → Security & Privacy → Privacy → Files and Folders
+- Try running the app with administrator privileges if file access issues persist
 
 ## Usage
 

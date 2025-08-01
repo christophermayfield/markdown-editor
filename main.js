@@ -12,6 +12,7 @@ function createWindow() {
     minWidth: 800,
     minHeight: 600,
     titleBarStyle: 'hiddenInset',
+    trafficLightPosition: { x: 20, y: 13 },
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -162,6 +163,23 @@ ipcMain.handle('save-content', async (event, content, filePath) => {
   } catch (error) {
     return { success: false, error: error.message };
   }
+});
+
+// IPC event handlers for toolbar buttons
+ipcMain.on('new-file', () => {
+  newFile();
+});
+
+ipcMain.on('open-file', () => {
+  openFile();
+});
+
+ipcMain.on('save-file', () => {
+  saveFile();
+});
+
+ipcMain.on('save-as-file', () => {
+  saveAsFile();
 });
 
 app.whenReady().then(createWindow);
